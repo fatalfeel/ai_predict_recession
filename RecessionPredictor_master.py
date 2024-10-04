@@ -25,7 +25,7 @@ if now.day < 8:
                     Invalid date. Please run this program on or after
                     the 8th calendar day of the current month.
                     """)
-    
+
 parser = argparse.ArgumentParser()
 parser.add_argument('process', type=str,
                     help=
