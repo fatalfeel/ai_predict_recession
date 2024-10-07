@@ -7,6 +7,7 @@ from datetime import datetime, timedelta, timezone
 from io import StringIO
 import json
 import re
+import time
 import requests as req
 import pandas as pd
 import RecessionPredictor_paths as path
@@ -171,8 +172,6 @@ class MakeDataset:
         """
         Cycles through "fred_series"ids" to get data from the FRED API.
         """
-        import time
-        
         now = datetime.now()
         month = now.strftime('%m')
         year = now.year        
