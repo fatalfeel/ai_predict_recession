@@ -43,7 +43,6 @@ if process == 'backtest':
    explore_data = exp.ExploratoryAnalysis().explore_dataset()
    backtest = test.Backtester().run_test_procedures()
    plot_backtest = test_results.TestResultPlots().plot_test_results()
-
 elif process == 'deploy':
    get_data = mk.MakeDataset().get_all_data()
    build_features = ft.FinalizeDataset().create_final_dataset()

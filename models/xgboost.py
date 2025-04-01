@@ -4,14 +4,12 @@ This module runs an XGBoost model.
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import log_loss
-
+from xgboost import XGBClassifier
 
 class XGBoost:
     """
     Methods and attributes to run an XGBoost model.
     """
-
-    
     def __init__(self):
         """
         depth_range: range of depth values to use during grid-search
@@ -93,8 +91,6 @@ class XGBoost:
         """
         Runs cross-validation by grid-searching through depth and child_weight values.
         """
-        from xgboost import XGBClassifier
-        
         for depth in self.depth_range:
             for child_weight in self.child_weight_range:
                 all_predicted_probs = pd.DataFrame()
@@ -150,8 +146,6 @@ class XGBoost:
         """
         Runs cross-validation by grid-searching through reg_lambda values.
         """
-        from xgboost import XGBClassifier
-        
         for reg_lambda in self.lambda_range:
             all_predicted_probs = pd.DataFrame()
             all_testing_y = pd.Series()
@@ -217,8 +211,6 @@ class XGBoost:
         """
         Performs prediction on the hold-out sample.
         """
-        from xgboost import XGBClassifier
-        
         self.optimal_depth = self.xgboost_optimal_params['Depth']
         self.optimal_child_weight = self.xgboost_optimal_params['Min Child Weight']
         self.optimal_lambda = self.xgboost_optimal_params['Lambda']

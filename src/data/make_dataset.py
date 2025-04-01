@@ -167,7 +167,7 @@ class MakeDataset:
         self.shortest_series_length = 1000000
         self.secondary_df_output = pd.DataFrame()
 
-    
+
     def get_fred_data(self):
         """
         Cycles through "fred_series"ids" to get data from the FRED API.
@@ -177,7 +177,7 @@ class MakeDataset:
         year = now.year        
         most_recent_date = '{}-{}-08'.format(year, month)
         print('\nGetting data from FRED API as of {}...'.format(most_recent_date))
-        
+
         for series_name in list(self.fred_series_ids.keys()):
             series_data = DataSeries()
             series_id = self.fred_series_ids[series_name]

@@ -4,17 +4,15 @@ This module runs a deployment version of an SVM model.
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import log_loss
-from sklearn.multiclass import OneVsRestClassifier
+from sklearn.svm import SVC
 
 class SupportVectorMachine:
     """
-    Methods and attributes to run an Elastic Net model.
+    Methods and attributes to run a Support Vector Machine model.
     """
-
-    
     def __init__(self):
         """
-        C_range: range of of C values to use during grid-search
+        C_range: range of C values to use during grid-search
         
         gamma_range: range of gamma values to use during grid-search
         """
@@ -81,8 +79,6 @@ class SupportVectorMachine:
         """
         Runs cross-validation by grid-searching through C and gamma values.
         """
-        from sklearn.svm import SVC
-        
         default_gamma = 1 / len(self.feature_names)
         self.gamma_range = [multiplier * default_gamma
                             for multiplier in [0.25, 0.50, 0.75, 1.0, 1.25,

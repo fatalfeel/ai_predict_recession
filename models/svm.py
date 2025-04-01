@@ -4,15 +4,12 @@ This module runs a Support Vector Machine model.
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import log_loss
-from sklearn.multiclass import OneVsRestClassifier
-
+from sklearn.svm import SVC
 
 class SupportVectorMachine:
     """
     Methods and attributes to run a Support Vector Machine model.
     """
-
-    
     def __init__(self):
         """
         C_range: range of C values to use during grid-search
@@ -82,8 +79,6 @@ class SupportVectorMachine:
         """
         Runs cross-validation by grid-searching through C and gamma values.
         """
-        from sklearn.svm import SVC
-        
         default_gamma = 1 / len(self.feature_names)
         self.gamma_range = [multiplier * default_gamma
                             for multiplier in [0.25, 0.50, 0.75, 1.0, 1.25,
@@ -168,7 +163,6 @@ class SupportVectorMachine:
         all_predicted_probs = pd.DataFrame()
         all_testing_y = pd.Series()
         dates = []
-        self.log_loss_weights = []
         training_x      = self.full_df.loc[: (self.pred_indices[0] - 1), self.feature_names]
         self.training_y = self.full_df.loc[: (self.pred_indices[0] - 1), self.output_name]
         scaler = StandardScaler()
@@ -216,6 +210,7 @@ class SupportVectorMachine:
         self.svm_predictions['True'] = all_testing_y.to_list()
         self.svm_predictions['Predicted'] = all_predicted_probs[1].to_list()
         self.metadata['SV Count %'] = round(self.support_vector_count_as_percent, 5)
+
 
 #MIT License
 #
