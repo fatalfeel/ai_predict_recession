@@ -161,14 +161,12 @@ class SupportVectorMachine:
         self.svm_optimal_params['Gamma'] = self.optimal_gamma
         self.svm_optimal_params['Best CV Score'] = self.best_cv_score
         self.metadata['SV Count %'] = self.support_vector_count_as_percent
-        
-        
+
+
     def run_svm_prediction(self):
         """
         Performs prediction on the hold-out sample.
         """
-        from sklearn.svm import SVC
-        
         self.optimal_C = self.svm_optimal_params['C']
         self.optimal_gamma = self.svm_optimal_params['Gamma']
         all_predicted_probs = pd.DataFrame()

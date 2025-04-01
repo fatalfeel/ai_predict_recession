@@ -156,8 +156,6 @@ class SupportVectorMachine:
         """
         Performs prediction on the hold-out sample.
         """
-        from sklearn.svm import SVC
-        
         self.optimal_C = self.svm_optimal_params['C']
         self.optimal_gamma = self.svm_optimal_params['Gamma']
         all_predicted_probs = pd.DataFrame()
