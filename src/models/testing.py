@@ -5,13 +5,13 @@ import json
 import pandas as pd
 
 import RecessionPredictor_paths as path
-from models.knn import KNN
+from models.knn_test import KNN
 from models.elastic_net import ElasticNet
 from models.naive_bayes import NaiveBayes
-from models.svm import SupportVectorMachine
-from models.gp import GaussianProcess
-from models.xgboost import XGBoost
-from models.weighted_average import WeightedAverage
+from models.svm_test import SupportVectorMachine
+from models.gp_test import GaussianProcess
+from models.xgboost_test import XGBoost
+from models.weighted_average_test import WeightedAverage
 
 
 class CrossValidate:
