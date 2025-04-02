@@ -296,21 +296,9 @@ class Deployer:
         print('\nSaving Full Predictions as dataframes...')
         with open(path.deployment_full_predictions, 'r') as file:
             self.full_predictions = json.load(file)
-        #self.read_full_predictions('KNN').to_json(path.knn_test_results)
-        #print('\t|--KNN results saved to {}'.format(path.knn_test_results))
-        #self.read_full_predictions('Elastic_Net').to_json(path.elastic_net_test_results)
-        #print('\t|--Elastic Net results saved to {}'.format(path.elastic_net_test_results))
-        #self.read_full_predictions('Naive_Bayes').to_json(path.naive_bayes_test_results)
-        #print('\t|--Naive Bayes results saved to {}'.format(path.naive_bayes_test_results))
-        #self.read_full_predictions('SVM').to_json(path.svm_test_results)
-        #print('\t|--SVM results saved to {}'.format(path.svm_test_results))
-        #self.read_full_predictions('Gaussian_Process').to_json(path.gauss_test_results)
-        #print('\t|--Gaussian Process results saved to {}'.format(path.gauss_test_results))
-        self.read_full_predictions('XGBoost').to_json(path.xgboost_test_results)
-        print('\t|--XGBoost results saved to {}'.format(path.xgboost_test_results))
-        #self.read_full_predictions('Weighted_Average').to_json(path.weighted_average_test_results)
-        #print('\t|--Weighted Average results saved to {}'.format(path.weighted_average_test_results))
-        
+        self.read_full_predictions('XGBoost').to_json(path.deployment_xgboost_test_results)
+        print('\t|--XGBoost results saved to {}'.format(path.deployment_xgboost_test_results))
+
     
     def run_test_procedures(self):
         """

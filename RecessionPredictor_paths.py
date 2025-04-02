@@ -36,6 +36,7 @@ deployment_cv_metadata = (str(os.getcwd()) + '/models/model_metadata/deployment_
 deployment_pred_model_metadata = (str(os.getcwd()) + '/models/model_metadata/deployment_pred_metadata.json')
 deployment_full_predictions = (str(os.getcwd()) + '/models/model_metadata/deployment_full_predictions.json')
 deployment_svm_test_results = (str(os.getcwd()) + '/models/testing_data/deployment_svm_test_results.json')
+deployment_xgboost_test_results = (str(os.getcwd()) + '/models/testing_data/deployment_xgboost_test_results.json')
 deployment_chart_data = (str(os.getcwd()) + '/reports/deployment_chart.csv')
 
 #MIT License

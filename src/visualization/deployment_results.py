@@ -159,7 +159,7 @@ class TestResultPlots:
         chart_data.to_csv(path.deployment_chart_data, index=False)
 
 
-    def plot_test_results(self):
+    def plot_test_results_svm(self):
         """
         Loads test results for the deployed model, and plots it into a single PDF.
         """
@@ -178,6 +178,28 @@ class TestResultPlots:
         self.svm_test_results = pd.read_json(path.deployment_svm_test_results)
         self.svm_test_results.sort_index(inplace=True)
         self.create_chart_data(dataframe=self.svm_test_results)
+        print('\nChart data saved to {}'.format(path.deployment_chart_data))
+        self.pdf_object.close()
+
+    def plot_test_results_xgboost(self):
+        """
+        Loads test results for the deployed model, and plots it into a single PDF.
+        """
+        self.xgboost_test_results = pd.read_json(path.deployment_xgboost_test_results)
+        self.xgboost_test_results.sort_index(inplace=True)
+        print('\nPlotting test results...')
+        self.pdf_object = PdfPages(path.deployment_results_plots)
+        print('\t|--Plotting XGBoost test results...')
+        self.plot_probabilities(dataframe=self.xgboost_test_results,
+                                name='XGBoost', exponential=False)
+        self.xgboost_test_results = pd.read_json(path.deployment_xgboost_test_results)
+        self.xgboost_test_results.sort_index(inplace=True)
+        self.plot_probabilities(dataframe=self.xgboost_test_results,
+                                name='XGBoost EMA', exponential=True)
+        print('\nPlotted results saved to {}'.format(path.deployment_results_plots))
+        self.xgboost_test_results = pd.read_json(path.deployment_xgboost_test_results)
+        self.xgboost_test_results.sort_index(inplace=True)
+        self.create_chart_data(dataframe=self.xgboost_test_results)
         print('\nChart data saved to {}'.format(path.deployment_chart_data))
         self.pdf_object.close()
         

@@ -47,12 +47,12 @@ elif process == 'deploysvm':
     get_data = mk.MakeDataset().get_all_data()
     build_features = ft.FinalizeDataset().create_final_dataset()
     deploy = deploy.Deployer().run_test_procedures()
-    plot_deploy = deploy_results.TestResultPlots().plot_test_results()
+    plot_deploy = deploy_results.TestResultPlots().plot_test_results_svm()
 elif process == 'deployxgboost':
     get_data = mk.MakeDataset().get_all_data()
     build_features = ft.FinalizeDataset().create_final_dataset()
     deploy = deployxgboost.Deployer().run_test_procedures()
-    plot_deploy = deploy_results.TestResultPlots().plot_test_results()
+    plot_deploy = deploy_results.TestResultPlots().plot_test_results_xgboost()
 
 
 #MIT License
