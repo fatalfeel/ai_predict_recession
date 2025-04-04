@@ -181,6 +181,7 @@ class TestResultPlots:
         print('\nChart data saved to {}'.format(path.deployment_chart_data))
         self.pdf_object.close()
 
+
     def plot_test_results_xgboost(self):
         """
         Loads test results for the deployed model, and plots it into a single PDF.
