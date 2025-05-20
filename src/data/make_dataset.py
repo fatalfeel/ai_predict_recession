@@ -3,14 +3,14 @@ This module gets data from FRED and Yahoo Finance, builds some features,
 and saves the data into the respective filepaths.
 """
 
-from datetime import datetime, timedelta, timezone
-from io import StringIO
 import json
 import re
 import time
 import requests as req
 import pandas as pd
 import RecessionPredictor_paths as path
+from datetime import datetime, timedelta, timezone
+from io import StringIO
 
 
 class YahooData:
@@ -207,8 +207,6 @@ class MakeDataset:
         """
         Cycles through "yahoo_series"ids" to get data from the Yahoo Finance.
         """        
-        import time
-        
         print('\nGetting data from Yahoo Finance...')
         for series_name in list(self.yahoo_series_ids.keys()):
             series_data = DataSeries()
