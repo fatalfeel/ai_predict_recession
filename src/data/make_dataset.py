@@ -45,7 +45,8 @@ class YahooData:
         """
         Original code source: https://stackoverflow.com/questions/44225771/scraping-historical-data-from-yahoo-finance-with-python
         """
-        response = self.session.get(self.crumb_link.format(self.symbol),
+        finalurl = self.crumb_link.format(self.symbol)
+        response = self.session.get(finalurl,
                                     headers=self.headers,
                                     timeout=self.timeout)
         response.raise_for_status()
