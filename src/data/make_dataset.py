@@ -97,8 +97,9 @@ class DataSeries:
                                params=params)
         fred_json = json.loads(fred_request.text)['observations']
         for observation in fred_json:
-            self.dates.append(str(observation['date']))
-            self.values.append(float(observation['value']))
+            if observation['value'] not in ('', '.'):
+                self.dates.append(observation['date'])
+                self.values.append(float(observation['value']))
          
             
     def yahoo_response(self, series_id):
@@ -175,7 +176,7 @@ class MakeDataset:
         """
         now = datetime.now()
         month = now.strftime('%m')
-        year = now.year        
+        year = now.year
         most_recent_date = '{}-{}-08'.format(year, month)
         print('\nGetting data from FRED API as of {}...'.format(most_recent_date))
 
